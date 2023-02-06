@@ -47,9 +47,18 @@ export const loginUser = (data) => (dispatch) => {
   })
     .then((res) => {
       // console.log(res, "login successful");
-      dispatch(getAppSuccess(res));
-      window.localStorage.setItem(AUTH_TOKEN, res?.tokens?.access);
-      window.localStorage.setItem("REFRESH_TOKEN", res?.tokens?.refresh);
+      toast(res.message, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+      dispatch(getAppSuccess(res.user));
+      window.localStorage.setItem(AUTH_TOKEN, res?.token);
       const redirectUrl =
         window.sessionStorage.getItem(REDIRECT_URL) ?? "/dashboard";
       history.push(redirectUrl);
