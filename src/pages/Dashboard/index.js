@@ -1,9 +1,8 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
-// import { Link, NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import {
-    getLogoutSelector,
+  getLogoutSelector,
   logoutUser,
 } from "../../services/slices/auth/logout";
 
@@ -36,40 +35,8 @@ export default function Dashboard() {
               aria-labelledby="dropdownNavLink"
             >
               <li>
-                <a
-                  className="dropdown-item active"
-                  href="#"
-                  aria-current="page"
-                >
+                <a className="dropdown-item" href="#">
                   Overview
-                </a>
-              </li>
-              <li>
-                <a className="dropdown-item" href="#">
-                  Inventory
-                </a>
-              </li>
-              <li>
-                <a className="dropdown-item" href="#">
-                  Customers
-                </a>
-              </li>
-              <li>
-                <a className="dropdown-item" href="#">
-                  Products
-                </a>
-              </li>
-              <li>
-                <hr className="dropdown-divider" />
-              </li>
-              <li>
-                <a className="dropdown-item" href="#">
-                  Reports
-                </a>
-              </li>
-              <li>
-                <a className="dropdown-item" href="#">
-                  Analytics
                 </a>
               </li>
             </ul>
@@ -107,26 +74,16 @@ export default function Dashboard() {
               >
                 <li>
                   <a className="dropdown-item" href="#">
-                    New project...
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#">
                     Settings
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Profile
                   </a>
                 </li>
                 <li>
                   <hr className="dropdown-divider" />
                 </li>
                 <li>
-                  <a className="dropdown-item" href="#" onClick={handleSubmit}>
+                  <p className="dropdown-item" href="#" onClick={handleSubmit}>
                     {loading ? "logging out..." : "Sign out"}
-                  </a>
+                  </p>
                 </li>
               </ul>
             </div>
