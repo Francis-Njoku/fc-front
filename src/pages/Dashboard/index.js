@@ -22,24 +22,11 @@ export default function Dashboard() {
         >
           <div className="dropdown">
             <a
-              href="#"
-              className="d-flex align-items-center col-lg-4 mb-2 mb-lg-0 link-dark text-decoration-none dropdown-toggle"
-              id="dropdownNavLink"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
+              className="d-flex align-items-center col-lg-4 mb-2 mb-lg-0 link-dark text-decoration-none"
             >
               Dashboard
             </a>
-            <ul
-              className="dropdown-menu text-small shadow"
-              aria-labelledby="dropdownNavLink"
-            >
-              <li>
-                <a className="dropdown-item" href="#">
-                  Overview
-                </a>
-              </li>
-            </ul>
+         
           </div>
 
           <div className="d-flex align-items-center">
@@ -81,7 +68,7 @@ export default function Dashboard() {
                   <hr className="dropdown-divider" />
                 </li>
                 <li>
-                  <p className="dropdown-item" href="#" onClick={handleSubmit}>
+                  <p className="dropdown-item" onClick={handleSubmit} style={{cursor: "pointer"}}>
                     {loading ? "logging out..." : "Sign out"}
                   </p>
                 </li>
