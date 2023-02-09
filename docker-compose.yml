@@ -1,12 +1,51 @@
-version: "3.3"
+version: '3.8'
 services:
- client:
-   stdin_open: true
-   build:
-     context: .
-     dockerfile: Dockerfile
-   ports:
-     - "3000:3000"
-   volumes:
-     - "./:/app"
-     - "./:/node_modules"  
+  app:
+    build: 
+      context: .
+    volumes:
+      - .:/fc-front
+    ports:
+      - 3000:3000
+    image: app:react
+    container_name: react_container
+    command: npm start
+        
+#version: '3.3'
+#services:
+#  web:
+#    build:
+#      context: .
+#      dockerfile: Dockerfile
+#    ports:
+#      - '80:80'
+    
+
+#version: '3.3'
+#services:
+#    nginx-react:
+#      image: reactapp:latest
+#      container_name: fc-front
+#      build:
+#        context: .
+#        dockerfile: Dockerfile
+#      ports:
+#        - "80:80"
+#      volumes:
+#        - "./:/app"
+#        - "./:/node_modules"   
+#      environment:
+#        NODE_ENV: production    
+
+
+#services:
+# client:
+#   stdin_open: true
+#   build:
+#     context: .
+#     dockerfile: Dockerfile
+#   ports:
+#     - "3000:3000"
+#   volumes:
+#     - "./:/app"
+#     - "./:/node_modules" 
