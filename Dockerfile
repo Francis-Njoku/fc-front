@@ -1,21 +1,21 @@
 #Dockerfile
-FROM node:15.13-alpine
-WORKDIR /fc-front
-ENV PATH="./node_modules/.bin:$PATH"
-COPY . .
-RUN npm run build
-CMD ["npm", "start"]
-
-#FROM node:14 as builder
-#WORKDIR /app
-#COPY package.json .
-#RUN npm install
+#FROM node:15.13-alpine
+#WORKDIR /fc-front
+#ENV PATH="./node_modules/.bin:$PATH"
 #COPY . .
 #RUN npm run build
+#CMD ["npm", "start"]
+
+FROM node:15.13-alpine as builder
+WORKDIR /fc-front
+COPY package.json .
+RUN npm install
+COPY . .
+RUN npm run build
 #production environment
-#FROM nginx
-#EXPOSE 80
-#COPY --from=builder /app/build /usr/share/nginx/html
+FROM nginx
+EXPOSE 80
+COPY --from=builder /app/build /usr/share/nginx/html
 
 
 #FROM node:19-alpine3.16 as build
